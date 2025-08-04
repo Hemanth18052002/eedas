@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Home - Job Portal{% endblock %}
+{% block content %}
+<h2 class="text-3xl font-bold mb-6">Latest Job Listings</h2>
+{% for job in jobs %}
+  <div class="bg-white shadow-md rounded p-4 mb-4">
+    <h3 class="text-xl font-semibold">{{ job.title }}</h3>
+    <p class="text-sm text-gray-600">{{ job.company }} - {{ job.location }}</p>
+    <p class="mt-2">{{ job.description|truncatewords:30 }}</p>
+  </div>
+{% empty %}
+  <p>No jobs posted yet.</p>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,27 @@
+<!-- Login Modal -->
+<div id="loginModal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
+  <div class="bg-white p-6 rounded shadow w-96">
+    <h2 class="text-xl font-semibold mb-4">Login</h2>
+    <form method="POST" action="{% url 'login' %}">
+      {% csrf_token %}
+      <input type="text" name="username" placeholder="Username" required class="w-full mb-3 p-2 border rounded" />
+      <input type="password" name="password" placeholder="Password" required class="w-full mb-3 p-2 border rounded" />
+      <button type="submit" class="btn btn-primary w-full">Login</button>
+    </form>
+  </div>
+</div>
+
+<!-- Register Modal -->
+<div id="registerModal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
+  <div class="bg-white p-6 rounded shadow w-96">
+    <h2 class="text-xl font-semibold mb-4">Register</h2>
+    <form method="POST" action="{% url 'register' %}">
+      {% csrf_token %}
+      <input type="text" name="username" placeholder="Username" required class="w-full mb-3 p-2 border rounded" />
+      <input type="email" name="email" placeholder="Email" required class="w-full mb-3 p-2 border rounded" />
+      <input type="password" name="password1" placeholder="Password" required class="w-full mb-3 p-2 border rounded" />
+      <input type="password" name="password2" placeholder="Confirm Password" required class="w-full mb-3 p-2 border rounded" />
+      <button type="submit" class="btn btn-primary w-full">Register</button>
+    </form>
+  </div>
+</div>
