@@ -5,26 +5,26 @@
     <meta charset="UTF-8">
     <title>{% block title %}Job Portal{% endblock %}</title>
 
-    {# Fallback if custom static CSS is missing #}
     <link href="{% static 'css/main.css' %}" rel="stylesheet" onerror="this.onerror=null; this.remove();">
-
-    {# Tailwind CSS injection – fails silently if not properly configured #}
     {% tailwind_css %}
 </head>
 <body class="bg-gray-100 text-gray-800">
 
-    {# Header include with safe fallback #}
-    {% include 'partials/header.html' ignore missing %}
+    {% if 'partials/header.html' in request.templates %}
+        {% include 'partials/header.html' %}
+    {% endif %}
 
-    {# Authentication modal include with safe fallback #}
-    {% include 'partials/auth_modals.html' ignore missing %}
+    {% if 'partials/auth_modals.html' in request.templates %}
+        {% include 'partials/auth_modals.html' %}
+    {% endif %}
 
     <main class="container mx-auto py-8">
         {% block content %}{% endblock %}
     </main>
 
-    {# Footer include with safe fallback #}
-    {% include 'partials/footer.html' ignore missing %}
+    {% if 'partials/footer.html' in request.templates %}
+        {% include 'partials/footer.html' %}
+    {% endif %}
 
 </body>
 </html>
