@@ -6,4 +6,7 @@
   <a href="#" class="btn btn-secondary mx-4">I'm a Candidate</a>
   <a href="#" class="btn btn-primary mx-4">I'm an Employer</a>
 </div>
+{% if not jobs and jobs is not None %}
+  <p class="text-red-500 mt-4">No roles available at the moment.</p>
+{% endif %}
 {% endblock %}
