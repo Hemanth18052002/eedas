@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-@8btbq^)9lz7#g8+i7h7p5=r@q^o-cq(0+d1crrfe5_ht_kv*2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.onrender.com']
 
 NPM_BIN_PATH = r'F:\nodejs\npm.cmd'
 
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 ]
 
 TAILWIND_APP_NAME = 'theme'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
