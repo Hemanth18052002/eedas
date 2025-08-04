@@ -14,7 +14,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+import os
 import pymysql
 pymysql.install_as_MySQLdb()
 
@@ -81,15 +81,9 @@ WSGI_APPLICATION = 'jobportal.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+import dj_database_url
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'wordpress_new',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '3306',
-    }
+    'default': dj_database_url.config(default='postgresql://wordpress_new_user:Vspv9rMaGO3twi8MmXxo4BtvUehO5cuf@dpg-d28e7gk9c44c73ad0fc0-a/wordpress_new')
 }
 
 
@@ -128,6 +122,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # STATICFILES_DIRS = [BASE_DIR / 'static']
 TEMPLATES[0]['DIRS'] = [BASE_DIR / 'templates']
 
