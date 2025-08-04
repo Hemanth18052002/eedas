@@ -87,7 +87,7 @@ WSGI_APPLICATION = 'jobportal.wsgi.application'
 
 import dj_database_url
 DATABASES = {
-    'default': dj_database_url.config(default='postgresql://wordpress_new_user:Vspv9rMaGO3twi8MmXxo4BtvUehO5cuf@dpg-d28e7gk9c44c73ad0fc0-a/wordpress_new')
+    'default': dj_database_url.config(default='postgresql://wordpress_new_user:Vspv9rMaGO3twi8MmXxo4BtvUehO5cuf@dpg-d28e7gk9c44c73ad0fc0-a.oregon-postgres.render.com/wordpress_new')
 }
 
 
