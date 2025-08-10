@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Register - Job Portal{% endblock %}
+
+{% block content %}
+<div class="max-w-md mx-auto p-4">
+    <h2 class="text-2xl font-bold mb-4">Register</h2>
+    {% if messages %}
+        <ul class="mb-4">
+            {% for message in messages %}
+                <li class="{% if message.tags == 'error' %}text-red-500{% else %}text-green-500{% endif %}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <form method="post" class="space-y-4">
+        {% csrf_token %}
+        <div>
+            <label for="id_email" class="block text-sm font-medium">Email:</label>
+            <input type="email" id="id_email" name="email" value="{{ register_form.email.value|default_if_none:'' }}" required class="w-full p-2 border rounded">
+        </div>
+        <div>
+            <label for="id_password1" class="block text-sm font-medium">Password:</label>
+            <input type="password" id="id_password1" name="password1" required class="w-full p-2 border rounded">
+        </div>
+        <div>
+            <label for="id_password2" class="block text-sm font-medium">Confirm Password:</label>
+            <input type="password" id="id_password2" name="password2" required class="w-full p-2 border rounded">
+        </div>
+        <div>
+            <label for="id_role" class="block text-sm font-medium">Role:</label>
+            <select id="id_role" name="role" required class="w-full p-2 border rounded">
+                <option value="">Select Role</option>
+                <option value="student" {% if register_form.role.value == 'student' %}selected{% endif %}>Student</option>
+                <option value="company" {% if register_form.role.value == 'company' %}selected{% endif %}>Company</option>
+            </select>
+        </div>
+        <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Register</button>
+    </form>
+</div>
+{% endblock %}

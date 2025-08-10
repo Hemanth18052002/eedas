@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Login - Job Portal{% endblock %}
+
+{% block content %}
+<div class="max-w-md mx-auto p-4">
+    <h2 class="text-2xl font-bold mb-4">Login</h2>
+    {% if messages %}
+        <ul class="mb-4">
+            {% for message in messages %}
+                <li class="{% if message.tags == 'error' %}text-red-500{% else %}text-green-500{% endif %}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <form method="post" class="space-y-4">
+        {% csrf_token %}
+        <div>
+            <label for="id_username" class="block text-sm font-medium">Email:</label>
+            <input type="email" id="id_username" name="username" required class="w-full p-2 border rounded">
+        </div>
+        <div>
+            <label for="id_password" class="block text-sm font-medium">Password:</label>
+            <input type="password" id="id_password" name="password" required class="w-full p-2 border rounded">
+        </div>
+        <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Login</button>
+    </form>
+</div>
+{% endblock %}

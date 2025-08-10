@@ -1,30 +1,22 @@
-"""
-URL configuration for jobportal project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
 from core import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', views.index, name='index'),
-    path('select-role/', views.role_select, name='select_role'),
+    path('signup/', views.signup, name='signup'),
+    path('verify-otp/<int:user_id>/', views.verify_otp, name='verify_otp'),
+    path('resend-otp/<int:user_id>/', views.resend_otp, name='resend_otp'),
     path('login/', views.login_view, name='login'),
-    path('register/', views.register_view, name='register'),
     path('logout/', views.logout_view, name='logout'),
+    path('profile/', views.profile, name='profile'),
+    path('create-job/', views.create_job, name='create_job'),
+    path('edit-job/<int:job_id>/', views.edit_job, name='edit_job'),
+    path('apply-job/<int:job_id>/', views.apply_job, name='apply_job'),
+    path('applicants/<int:job_id>/', views.applicants, name='applicants'),
+    path('test-db/', views.test_db, name='test_db'),
+    path('test-email/', views.test_email, name='test_email'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
