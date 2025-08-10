@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block title %}{{ job.title }} - Job Portal{% endblock %}
+{% block content %}
+    <h2>{{ job.title }}</h2>
+    <p>{{ job.company }} - {{ job.location }}</p>
+    <p>{{ job.description }}</p>
+{% endblock %}

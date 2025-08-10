@@ -9,22 +9,13 @@
     {% tailwind_css %}
 </head>
 <body class="bg-gray-100 text-gray-800">
-
-    {% if 'partials/header.html' in request.templates %}
-        {% include 'partials/header.html' %}
-    {% endif %}
-
-    {% if 'partials/auth_modals.html' in request.templates %}
-        {% include 'partials/auth_modals.html' %}
-    {% endif %}
+    {% include 'header.html' %}
 
     <main class="container mx-auto py-8">
         {% block content %}{% endblock %}
     </main>
+    {% include 'footer.html' %}
 
-    {% if 'partials/footer.html' in request.templates %}
-        {% include 'partials/footer.html' %}
-    {% endif %}
 
 </body>
 </html>

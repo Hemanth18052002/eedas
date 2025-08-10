@@ -1,0 +1,21 @@
+{% if user.is_authenticated %}
+    <nav class="bg-gray-800 text-white p-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="{% url 'index' %}" class="text-xl font-bold">EEDAS Job Portal</a>
+            <div class="space-x-4">
+                <a href="{% url 'profile' %}" class="hover:underline">Profile</a>
+                <a href="{% url 'logout' %}" class="hover:underline">Logout</a>
+            </div>
+        </div>
+    </nav>
+{% else %}
+    <nav class="bg-gray-800 text-white p-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="{% url 'index' %}" class="text-xl font-bold">EEDAS Job Portal</a>
+            <div class="space-x-4">
+                <a href="{% url 'signup' %}" class="hover:underline">Register</a>
+                <a href="{% url 'login' %}" class="hover:underline">Login</a>
+            </div>
+        </div>
+    </nav>
+{% endif %}
